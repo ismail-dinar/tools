@@ -45,10 +45,6 @@ jobs:
     - name: Install npm packages
       run: npm ci
 
-    - name: Setup Git
-      run: |
-        git config user.name 'Ismail Dinar'
-        git config user.email 'ismaildinar96@gmail.com'
     - name: bump version
       run: npm version ${{ github.event.inputs.version }}
 
