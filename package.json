@@ -1,0 +1,30 @@
+{
+  "name": "lint-tools",
+  "version": "0.0.0",
+  "description": "Setup lint tools with a single command",
+  "exports": "./index.js",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ismail-dinar/lint-tools"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "bin": "./bin/lint-tools.js",
+  "author": "Ismail Dinar",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^17.0.33",
+    "typescript": "^4.6.4"
+  },
+  "lint-staged": {
+    "*.{ts,js,html,json,scss,md}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "ora": "^6.1.0"
+  }
+}
