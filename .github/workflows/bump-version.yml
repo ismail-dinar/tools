@@ -31,12 +31,11 @@ jobs:
     # when we push changes, it will trigger the release workflow
     # run that runs on: tag. (Using the GitHub token would
     # not run the workflow to prevent infinite recursion.)
-    - env:
-        GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
     - name: Check out source
       uses: actions/checkout@v2
     - name: Setup Node.js
       uses: actions/setup-node@v2
+
       with:
         node-version: '16'
         cache: 'npm'
@@ -52,4 +51,6 @@ jobs:
       run: npm version ${{ github.event.inputs.version }}
 
     - name: Push latest version
+    - env:
+        GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
       run: git push origin main --follow-tags
